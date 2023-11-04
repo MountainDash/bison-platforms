@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# project
+.pdm-python
+
 # C extensions
 *.so
 

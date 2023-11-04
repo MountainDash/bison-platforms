@@ -1,0 +1,175 @@
+[project]
+name = "bison-platforms"
+version = "0.1.0"
+description = "Bison 官方平台仓库"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+dependencies = [
+    "hishel>=0.0.16",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.mina.packages.arknights-platform]
+include = [
+    "patfroms/arknights",
+]
+[tool.mina.packages.arknights-platform.project]
+name = "nonebot-bison-platform-arknights"
+description = "Bison 平台：明日方舟"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = []
+entry-points = {pdm = {mina = "mina.plugin:ensure_pdm"}}
+
+[tool.mina.packages.bilibili-platform]
+include = [
+    "patfroms/bilibili",
+]
+[tool.mina.packages.bilibili-platform.project]
+name = "nonebot-bison-platform-bilibili"
+description = "Bison 平台：Bilibili"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = []
+entry-points = {pdm = {mina = "mina.plugin:ensure_pdm"}}
+
+[tool.mina.packages.ceobecanteen-platform]
+include = [
+    "patfroms/ceobecanteen",
+]
+[tool.mina.packages.ceobecanteen-platform.project]
+name = "nonebot-bison-platform-ceobecanteen"
+description = "Bison 平台：小刻食堂"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "hishel>=0.0.16",
+]
+entry-points = {pdm = {mina = "mina.plugin:ensure_pdm"}}
+
+[tool.mina.packages.ff14-platform]
+include = [
+    "patfroms/ff14",
+]
+[tool.mina.packages.ff14-platform.project]
+name = "nonebot-bison-platform-ff14"
+description = "Bison 平台：最终幻想14"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = []
+entry-points = {pdm = {mina = "mina.plugin:ensure_pdm"}}
+
+[tool.mina.packages.mcbbsnews-platform]
+include = [
+    "patfroms/mcbbsnews",
+]
+[tool.mina.packages.mcbbsnews-platform.project]
+name = "nonebot-bison-platform-mcbbsnews"
+description = "Bison 平台：MCBBS幻翼块讯"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = []
+entry-points = {pdm = {mina = "mina.plugin:ensure_pdm"}}
+
+[tool.mina.packages.ncm-platform]
+include = [
+    "patfroms/ncm",
+]
+[tool.mina.packages.ncm-platform.project]
+name = "nonebot-bison-platform-ncm"
+description = "Bison 平台：网易云音乐"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = []
+entry-points = {pdm = {mina = "mina.plugin:ensure_pdm"}}
+
+[tool.mina.packages.rss-platform]
+include = [
+    "patfroms/rss",
+]
+[tool.mina.packages.rss-platform.project]
+name = "nonebot-bison-platform-rss"
+description = "Bison 平台：RSS订阅源"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = []
+entry-points = {pdm = {mina = "mina.plugin:ensure_pdm"}}
+
+[tool.mina.packages.weibo-platform]
+include = [
+    "patfroms/weibo",
+]
+[tool.mina.packages.weibo-platform.project]
+name = "nonebot-bison-platform-weibo"
+description = "Bison 平台：微博"
+authors = [
+    {name = "AzideCupric", email = "rukuy@qq.com"},
+]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = []
+entry-points = {pdm = {mina = "mina.plugin:ensure_pdm"}}
+
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pdm-mina>=0.3.1",
+    "nonebot2>=2.1.2",
+    "nonebot-bison @ git+https://github.com/MountainDash/nonebot-bison.git@feat/color-sharp",
+]
+lint = [
+    "ruff>=0.1.3",
+    "isort>=5.12.0",
+]
+
+[build-system]
+requires = ["mina-build>=0.2.5"]
+build-backend = "mina.backend"
+
+[tool.ruff]
+select = ["E", "W", "F", "UP", "C", "T", "PYI", "PT", "Q"]
+ignore = ["E402", "C901", "PT023"]
+
+line-length = 120
+target-version = "py310"
+
+[tool.black]
+line-length = 120
+preview = true
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+extend-exclude = '''
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+skip_gitignore = true
+length_sort = true
+force_sort_within_sections = true
+src_paths = ["themes", "tests"]
+extra_standard_library = ["typing_extensions"]
