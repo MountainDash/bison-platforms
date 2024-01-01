@@ -3,11 +3,10 @@ from functools import partial
 
 from httpx import AsyncClient
 from bs4 import BeautifulSoup as bs
-
 from nonebot_bison.post import Post
 from nonebot_bison.types import Target, RawPost, Category
-from nonebot_bison.platform.platform import NewMessage, StatusChange
 from nonebot_bison.utils.scheduler_config import SchedulerConfig
+from nonebot_bison.platform.platform import NewMessage, StatusChange
 
 
 class ArknightsSchedConf(SchedulerConfig):

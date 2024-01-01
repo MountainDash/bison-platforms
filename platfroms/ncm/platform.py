@@ -2,10 +2,9 @@ import re
 from typing import Any
 
 from httpx import AsyncClient
-
 from nonebot_bison.post import Post
-from nonebot_bison.platform.platform import NewMessage
 from nonebot_bison.utils import SchedulerConfig
+from nonebot_bison.platform.platform import NewMessage
 from nonebot_bison.types import Target, RawPost, ApiError
 
 
