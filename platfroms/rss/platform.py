@@ -5,10 +5,9 @@ from typing import Any
 import feedparser
 from httpx import AsyncClient
 from bs4 import BeautifulSoup as bs
-
 from nonebot_bison.post import Post
-from nonebot_bison.platform.platform import NewMessage
 from nonebot_bison.types import Target, RawPost
+from nonebot_bison.platform.platform import NewMessage
 from nonebot_bison.utils import SchedulerConfig, text_similarity
 
 
