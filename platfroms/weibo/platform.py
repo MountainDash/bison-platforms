@@ -6,7 +6,6 @@ from datetime import datetime
 from httpx import AsyncClient
 from nonebot.log import logger
 from bs4 import BeautifulSoup as bs
-
 from nonebot_bison.post import Post
 from nonebot_bison.platform.platform import NewMessage
 from nonebot_bison.utils import SchedulerConfig, http_client
