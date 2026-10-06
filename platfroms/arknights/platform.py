@@ -3,11 +3,10 @@ from functools import partial
 
 from httpx import AsyncClient
 from bs4 import BeautifulSoup as bs
-
 from nonebot_bison.post import Post
 from nonebot_bison.types import Target, RawPost, Category
-from nonebot_bison.platform.platform import NewMessage, StatusChange
 from nonebot_bison.utils.scheduler_config import SchedulerConfig
+from nonebot_bison.platform.platform import NewMessage, StatusChange
 
 
 class ArknightsSchedConf(SchedulerConfig):
@@ -136,14 +135,14 @@ class MonsterSiren(NewMessage):
         return Category(3)
 
     async def parse(self, raw_post: RawPost) -> Post:
-        url = f'https://monster-siren.hypergryph.com/info/{raw_post["cid"]}'
-        res = await self.client.get(f'https://monster-siren.hypergryph.com/api/news/{raw_post["cid"]}')
+        url = f"https://monster-siren.hypergryph.com/info/{raw_post['cid']}"
+        res = await self.client.get(f"https://monster-siren.hypergryph.com/api/news/{raw_post['cid']}")
         raw_data = res.json()
         content = raw_data["data"]["content"]
         content = content.replace("</p>", "</p>\n")
         soup = bs(content, "html.parser")
         imgs = [x["src"] for x in soup("img")]
-        text = f'{raw_post["title"]}\n{soup.text.strip()}'
+        text = f"{raw_post['title']}\n{soup.text.strip()}"
         return Post(
             self,
             text,
@@ -174,7 +173,7 @@ class TerraHistoricusComic(NewMessage):
         return raw_data.json()["data"]
 
     def get_id(self, post: RawPost) -> Any:
-        return f'{post["comicCid"]}/{post["episodeCid"]}'
+        return f"{post['comicCid']}/{post['episodeCid']}"
 
     def get_date(self, _) -> None:
         return None
@@ -183,11 +182,11 @@ class TerraHistoricusComic(NewMessage):
         return Category(4)
 
     async def parse(self, raw_post: RawPost) -> Post:
-        url = f'https://terra-historicus.hypergryph.com/comic/{raw_post["comicCid"]}/episode/{raw_post["episodeCid"]}'
+        url = f"https://terra-historicus.hypergryph.com/comic/{raw_post['comicCid']}/episode/{raw_post['episodeCid']}"
         return Post(
             self,
             raw_post["subtitle"],
-            title=f'{raw_post["title"]} - {raw_post["episodeShortTitle"]}',
+            title=f"{raw_post['title']} - {raw_post['episodeShortTitle']}",
             images=[raw_post["coverUrl"]],
             url=url,
             nickname="泰拉记事社漫画",

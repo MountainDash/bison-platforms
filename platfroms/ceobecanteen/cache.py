@@ -1,7 +1,7 @@
 from functools import partial
 from types import MappingProxyType
-from collections.abc import Callable
 from typing import Any, TypeVar, cast
+from collections.abc import Callable
 from datetime import datetime, timedelta
 
 from expiringdict import ExpiringDict

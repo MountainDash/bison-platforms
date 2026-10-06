@@ -6,7 +6,6 @@ from httpx import AsyncClient
 from nonebot.log import logger
 from bs4 import Tag, BeautifulSoup
 from nonebot.plugin import require
-
 from nonebot_bison.post import Post
 from nonebot_bison.types import Target, RawPost, Category
 from nonebot_bison.utils import SchedulerConfig, http_client
